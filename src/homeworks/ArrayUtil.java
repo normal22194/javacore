@@ -17,7 +17,7 @@ public class ArrayUtil {
         System.out.println();
         //Խնդիր 3 — Տպել վերջին էլեմենտը
 
-        System.out.print("last element: " +  (numbers.length - 1));
+        System.out.print("last element: " +  (numbers[8]));
         System.out.println();
         //Խնդիր 4 — Տպել զանգվածի երկարությունը
 
@@ -67,10 +67,7 @@ public class ArrayUtil {
         }
         System.out.println("sum: " + sum);
         //Խնդիր 10 — Հաշվել միջին թվաբանականը
-        int summ = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            summ += numbers[i];
-        }
+
         double average = (double) sum / numbers.length;
         System.out.println("average: " + average);
         // bonus
