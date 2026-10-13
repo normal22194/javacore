@@ -73,6 +73,37 @@ public class ArrayUtil {
         }
         double average = (double) sum / numbers.length;
         System.out.println("average: " + average);
-        System.out.println(":>");
+        // bonus
+        int max = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+        }
+        System.out.println("max: " + max);
+        //bonus2
+
+        int positive = 0;
+        int negative = 0;
+        int zero = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] > 0) {
+                positive++;
+            } else if (numbers[i] < 0) {
+                negative++;
+            } else {
+                zero++;
+            }
+        }
+        System.out.println("positibe numbers: " + positive);
+        System.out.println("negative numbers: " + negative);
+        System.out.println("zeros: " + zero);
+        //bonus3
+
+        for (int i = numbers.length - 1; i >= 0; i--) {
+            System.out.print(numbers[i] + " ");
+            System.out.println();
+        }
+        System.out.println(":)");
     }
 }
