@@ -1,4 +1,3 @@
-
 package homeworks.employee;
 
 public class EmployeeStorage {
@@ -6,41 +5,46 @@ public class EmployeeStorage {
     private Employee[] employees = new Employee[10];
     private int size = 0;
 
-    private void extend() {
-        Employee[] newArray = new Employee[employees.length + 10];
-
-        for (int i = 0; i < employees.length; i++) {
-            newArray[i] = employees[i];
+    public void add(Employee employee) {
+        for (int i = 0; i < size; i++) {
+            if (employees[i].equals(employee)) {
+                System.out.println("employee already exists");
+                return;
+            }
         }
 
-        employees = newArray;
-    }
-
-    public void addEmployee(Employee employee) {
         if (size == employees.length) {
             extend();
         }
 
-        employees[size] = employee;
-        size++;
+        employees[size++] = employee;
     }
 
-    public void printAllEmployees() {
+    private void extend() {
+        Employee[] newEmployees = new Employee[employees.length + 10];
+
+        for (int i = 0; i < size; i++) {
+            newEmployees[i] = employees[i];
+        }
+
+        employees = newEmployees;
+    }
+
+    public void printAll() {
         if (size == 0) {
             System.out.println("no employees found.");
             return;
         }
 
         for (int i = 0; i < size; i++) {
-            System.out.println("employee " + (i + 1) + ":");
             System.out.println(employees[i]);
-            System.out.println();
+            System.out.println("--------------------");
         }
     }
 
-    public Employee findById(String employeeID) {
+    public Employee getById(String id) {
         for (int i = 0; i < size; i++) {
-            if (employees[i].getEmployeeID().equals(employeeID)) {
+            if (employees[i].getEmployeeID().equals(id)) {
                 return employees[i];
             }
         }
@@ -48,25 +52,35 @@ public class EmployeeStorage {
         return null;
     }
 
-    public void findByCompany(String company) {
+    public void printByCompanyName(String name) {
         boolean found = false;
 
         for (int i = 0; i < size; i++) {
-            if (employees[i].getCompany().equalsIgnoreCase(company)) {
-
-                System.out.println(
-                        employees[i].getName() + " " +
-                                employees[i].getSurname() + " - " +
-                                employees[i].getPosition()
-                );
-
+            if (employees[i].getCompany().getName().equalsIgnoreCase(name)) {
+                System.out.println(employees[i]);
+                System.out.println("--------------------");
                 found = true;
             }
         }
 
         if (!found) {
-            System.out.println("no employees found for company " + company + ".");
+            System.out.println("no employees found for this company.");
         }
     }
 
+    public void printByCompanyId(String id) {
+        boolean found = false;
+
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getCompany().getCompanyId().equals(id)) {
+                System.out.println(employees[i]);
+                System.out.println("--------------------");
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("no employees found for this company.");
+        }
+    }
 }

@@ -1,4 +1,3 @@
-
 package homeworks.employee;
 
 import java.util.Objects;
@@ -9,14 +8,13 @@ public class Employee {
     private String surname;
     private String employeeID;
     private double salary;
-    private String company;
+    private Company company;
     private String position;
 
     public Employee() {
     }
 
-    public Employee(String name, String surname, String employeeID,
-                    double salary, String company, String position) {
+    public Employee(String name, String surname, String employeeID, double salary, Company company, String position) {
         this.name = name;
         this.surname = surname;
         this.employeeID = employeeID;
@@ -57,11 +55,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getCompany() {
+    public Company getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(Company company) {
         this.company = company;
     }
 
@@ -73,15 +71,14 @@ public class Employee {
         this.position = position;
     }
 
-    // toString()
     @Override
     public String toString() {
-        return "name: " + name +
-                "\nsurname: " + surname +
-                "\nemployee ID: " + employeeID +
-                "\nsalary: " + salary +
-                "\ncompany: " + company +
-                "\nposition: " + position;
+        return "Name: " + name +
+                "\nSurname: " + surname +
+                "\nEmployee ID: " + employeeID +
+                "\nSalary: " + salary +
+                "\nCompany: " + company.getName() +
+                "\nPosition: " + position;
     }
 
     @Override
